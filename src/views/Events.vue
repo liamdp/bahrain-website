@@ -11,7 +11,7 @@
         </p>
       </div>
     </div>
-    <div v-else>No events could be found 😢</div>
+    <div class="no-events" v-else>No events could be found 😢</div>
   </div>
 </template>
 
@@ -65,5 +65,8 @@ export default {
   color: #f5faff;
   width: 890px;
   margin: auto;
+}
+.no-events {
+  color: #f5faff;
 }
 </style>

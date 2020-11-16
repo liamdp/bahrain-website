@@ -13,6 +13,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  min-height: 100vh;
   background-color: #181818 !important;
 }
 body,
@@ -26,7 +27,7 @@ html {
 
 <script lang="ts">
 import Vue from "vue";
-import Navbar from "./components/Navbar.vue";
+import Navbar from "./components/Navbar";
 export default Vue.extend({
   components: { Navbar },
 });
