@@ -1,24 +1,17 @@
-# bahrain-website-vue
+# Bahrain vACC Website
 
-## Project setup
-```
-npm install
-```
+Written in the Vue.JS framework.
 
-### Compiles and hot-reloads for development
-```
+## Running Locally
+
+To run locally, find your closest terminal window and type
+
+```sh
+npm i
+# wait a bit, then run:
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+whilst inside the project's directory.
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Then navigate to `localhost:8080`!
