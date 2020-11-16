@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="navbar">
+  <section class="header-navbar">
     <img src="../assets/logo.png" class="logo" />
     <div id="nav">
       <router-link to="/">Events</router-link> |
@@ -31,7 +31,7 @@ export default {
   color: #f5faff;
 
   a {
-    color: #8D1B3D;
+    color: #8d1b3d;
     text-decoration: none;
 
     &.router-link-exact-active {
@@ -40,7 +40,7 @@ export default {
     }
   }
 }
-.navbar {
+.header-navbar {
   padding: 1rem 0 0 0;
 }
 .logo {
