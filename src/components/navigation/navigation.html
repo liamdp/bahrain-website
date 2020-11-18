@@ -1,30 +1,47 @@
   <section class="header-navbar">
-    <!-- <img src="https://bahrainvacc.com/images/logo_white.png" class="logo" />
-    <div id="nav">
-      <router-link to="/">Events</router-link> |
-      <router-link to="/controllers">Controllers</router-link> |
-      <router-link to="/staff">Staff</router-link> |
-      <a href="https://bahrainvacc.com">Main Site</a>
-    </div>
-    <router-view /> -->
 
-    <b-navbar toggleable class="dark-navbar">
-      <b-navbar-brand href="https://bahrainvacc.com">NavBar</b-navbar-brand>
+    <b-navbar toggleable="sm" class="dark-navbar navbar-right">
+      <b-navbar-toggle target="nav-text-collapse" class="navbar-toggler-icon"></b-navbar-toggle>
 
-      <b-navbar-toggle target="navbar-toggle-collapse">
-        <template #default="{ expanded }">
-          <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
-          <b-icon v-else icon="chevron-bar-down"></b-icon>
-        </template>
-      </b-navbar-toggle>
+      <b-navbar-brand><img src="https://bahrainvacc.com/images/logo_white.png" class="logo" /></b-navbar-brand>
 
-      <b-collapse id="navbar-toggle-collapse" is-nav>
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item href="#">Link 1</b-nav-item>
-          <b-nav-item href="#">Link 2</b-nav-item>
-          <b-nav-item href="#" disabled>Disabled</b-nav-item>
+      <b-collapse id="nav-text-collapse" is-nav>
+        <b-navbar-nav class="ml-auto" align="center">
+          <b-nav-item>
+            <router-link to="/">Home</router-link>
+          </b-nav-item>
+          <b-nav-item>
+            <router-link to="/events">Events</router-link>
+          </b-nav-item>
+          <b-nav-item>
+            <router-link to="/controllers">Controllers</router-link>
+          </b-nav-item>
+          <b-nav-item>
+            <router-link to="/staff">Staff</router-link>
+          </b-nav-item>
+          <!-- <b-nav-item-dropdown text="Personnel">
+            <b-dropdown-item>
+              <router-link to="/controllers">Controllers</router-link>
+            </b-dropdown-item>
+            <b-dropdown-item>
+              <router-link to="/controllers">Staff</router-link>
+            </b-dropdown-item>
+          </b-nav-item-dropdown> -->
+          <b-nav-item>
+            <router-link to="/policies">Policies</router-link>
+          </b-nav-item>
+          <b-nav-item href="https://training.bahrainvacc.com">
+            Training
+          </b-nav-item>
+          <b-nav-item href="https://discord.bahrainvacc.com">
+            Discord
+          </b-nav-item>
+          <b-nav-item href="https://hq.vatme.net">
+            VATME HQ
+          </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+    <router-view />
 
   </section>
