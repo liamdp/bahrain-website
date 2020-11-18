@@ -1,0 +1,29 @@
+  <section class="staff">
+    <div v-if="staff.length">
+      <div class="staff-heading">
+        <h1>Staff</h1>
+      </div>
+      <div class="staff-table">
+        <table class="table text-light">
+          <thead class="thead-bh-purple">
+            <tr>
+              <th>Name</th>
+              <th>VATSIM ID</th>
+              <th>Staff Position</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="member in staff" v-bind:key="member.vatsimid">
+              <td>{{member.firstname}} {{member.lastname}}</td>
+              <td>{{member.vatsimid}}</td>
+              <td>{{member.staffposition}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div v-else class="no-staff">
+      ⚠️ There was a problem getting the staff list! Please report this on
+      <a href="https://discord.bahrainvacc.com">Discord</a>.
+    </div>
+  </section>

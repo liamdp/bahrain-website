@@ -1,0 +1,22 @@
+#nav {
+  padding: 30px;
+  color: #f5faff;
+
+  a {
+    color: #8d1b3d;
+    text-decoration: none;
+
+    &.router-link-exact-active {
+      color: #f5faff;
+      font-weight: 700;
+    }
+  }
+}
+
+.header-navbar {
+  padding: 1rem 0 0 0;
+}
+
+.logo {
+  height: 75px;
+}

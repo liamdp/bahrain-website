@@ -27,7 +27,7 @@ html {
 
 <script lang="ts">
 import Vue from "vue";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navigation";
 export default Vue.extend({
   components: { Navbar },
 });

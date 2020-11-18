@@ -1,0 +1,20 @@
+<section class="events">
+  <div class="events">
+    <div v-if="events.length">
+      <div class="events-heading">
+        <h1>Events</h1>
+      </div>
+      <div v-for="event in events" v-bind:key="event.id">
+        <a :href="event.link" class="event-link">
+          <h2 class="event-title">{{ event.name }}</h2>
+        </a>
+        <h5 class="date-time">{{ formatDate(event.datetime) }}z</h5>
+        <img class="banner" :src="event.bannerLink" alt="Banner Link" />
+        <p class="event-desc">
+          {{ formatDesc(event.description) }}
+        </p>
+      </div>
+    </div>
+    <div class="no-events" v-else>No events could be found 😢</div>
+  </div>
+</section>

@@ -1,22 +1,3 @@
-<template>
-  <div class="events">
-    <div v-if="events.length">
-      <div v-for="event in events" v-bind:key="event.id">
-        <a :href="event.link" class="event-link">
-          <h1 class="event-title">{{ event.name }}</h1>
-        </a>
-        <h5 class="date-time">{{ formatDate(event.datetime) }}z</h5>
-        <img class="banner" :src="event.bannerLink" alt="Banner Link" />
-        <p class="event-desc">
-          {{ formatDesc(event.description) }}
-        </p>
-      </div>
-    </div>
-    <div class="no-events" v-else>No events could be found 😢</div>
-  </div>
-</template>
-
-<script language="ts">
 import moment from "moment";
 export default {
   name: "Events",
@@ -62,29 +43,3 @@ export default {
     this.fetchEvents();
   },
 };
-</script>
-
-<style lang="scss">
-.banner {
-  height: 500px;
-}
-.event-link {
-  color: #f5faff;
-  text-decoration: none;
-}
-.events {
-  padding: 1rem 0 3rem 0;
-}
-.event-desc {
-  color: #f5faff;
-  width: 890px;
-  margin: auto;
-  padding: 1rem 0 3rem 0;
-}
-.no-events {
-  color: #f5faff;
-}
-.date-time {
-  color: #f5faff91;
-}
-</style>

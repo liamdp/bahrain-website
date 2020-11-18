@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Events from '../views/Events.vue'
+import Events from '../views/events'
+import Staff from '../views/staff'
+import Controllers from '../views/controllers'
 
 Vue.use(VueRouter)
 
@@ -13,10 +15,12 @@ const routes = [
   {
     path: '/controllers',
     name: 'Controllers',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Controllers.vue')
+    component: Controllers
+  },
+  {
+    path: '/staff',
+    name: 'Staff',
+    component: Staff
   }
 ]
 

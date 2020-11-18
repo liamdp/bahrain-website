@@ -1,0 +1,86 @@
+  <section class="controllers">
+    <div v-if="allControllers.length">
+      <div class="heading">
+        <h1>Active Controllers</h1>
+      </div>
+      <div class="controllers-table">
+        <table class="table text-light">
+          <thead class="thead-bh-purple">
+            <tr>
+              <th>Name</th>
+              <th>VATSIM ID</th>
+              <th>Rating</th>
+              <th>Approved For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="controller in activeControllers" v-bind:key="controller.vatsimid">
+              <td>{{ controller.firstname }} {{ controller.lastname }}</td>
+              <td>{{ controller.vatsimid }}</td>
+              <td>{{ controller.rating }}</td>
+              <td>{{ controller.approved_for }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="heading">
+        <h1>Solo-Validated Controllers</h1>
+      </div>
+      <div v-if="soloValidatedControllers.length">
+        <div class="controllers-table">
+          <table class="table text-light">
+            <thead class="thead-bh-purple">
+              <tr>
+                <th>Name</th>
+                <th>VATSIM ID</th>
+                <th>Solo Position</th>
+                <th>Term</th>
+                <th>Instructor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="controller in soloValidatedControllers" v-bind:key="controller.vatsimid">
+                <td>{{ controller.student_name }}</td>
+                <td>{{ controller.cid }}</td>
+                <td>{{ controller.position }}</td>
+                <td>{{ controller.date_start }} - {{ controller.date_end }}</td>
+                <td>
+                  {{ controller.instructor_name }} ({{
+                    controller.instructor_cid
+                  }})
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div v-else class="no-solo-controllers">
+        There are no controllers with <abbr title=""></abbr> solo-validation 😞
+      </div>
+      <div class="heading">
+        <h1>Inactive Controllers</h1>
+      </div>
+      <div class="controllers-table">
+        <table class="table text-light">
+          <thead class="thead-bh-purple">
+            <tr>
+              <th>Name</th>
+              <th>VATSIM ID</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="controller in inactiveControllers" v-bind:key="controller.vatsimid">
+              <td>{{ controller.firstname }} {{ controller.lastname }}</td>
+              <td>{{ controller.vatsimid }}</td>
+              <td>{{ controller.rating }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div v-else class="no-controllers">
+      ⚠️ There was a problem getting the controller list! Please report this on
+      <a href="https://discord.bahrainvacc.com">Discord</a>.
+    </div>
+  </section>
