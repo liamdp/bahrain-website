@@ -1,32 +1,73 @@
   <section class="controllers">
     <div v-if="allControllers.length">
+
       <div class="heading">
         <h1>Active Controllers</h1>
       </div>
-      <div class="controllers-table">
-        <table class="table text-light">
-          <thead class="thead-bh-purple">
-            <tr>
-              <th>Name</th>
-              <th>VATSIM ID</th>
-              <th>Rating</th>
-              <th>Approved For</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="controller in activeControllers" v-bind:key="controller.vatsimid">
-              <td>{{ controller.firstname }} {{ controller.lastname }}</td>
-              <td>{{ controller.vatsimid }}</td>
-              <td>{{ controller.rating }}</td>
-              <td>{{ controller.approved_for }}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div v-if="activeControllers.length > 0">
+
+        <div class="controllers-table">
+          <table class="table text-light">
+            <thead class="thead-bh-purple">
+              <tr>
+                <th>Name</th>
+                <th>VATSIM ID</th>
+                <th>Rating</th>
+                <th>Approved For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="controller in activeControllers" v-bind:key="controller.vatsimid">
+                <td>{{ controller.firstname }} {{ controller.lastname }}</td>
+                <td>{{ controller.vatsimid }}</td>
+                <td>{{ controller.rating }}</td>
+                <td>{{ controller.approved_for }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+
+      <div class="no-controllers-padding" v-else>
+        There are no controllers 😥
+      </div>
+
+      <div class="heading">
+        <h1>Visiting Controllers</h1>
+      </div>
+      <div v-if="activeVisitingControllers.length">
+
+        <div class="controllers-table">
+          <table class="table text-light">
+            <thead class="thead-bh-purple">
+              <tr>
+                <th>Name</th>
+                <th>VATSIM ID</th>
+                <th>Rating</th>
+                <th>Approved For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="controller in activeVisitingControllers" v-bind:key="controller.vatsimid">
+                <td>{{ controller.firstname }} {{controller.lastname}}</td>
+                <td>{{ controller.vatsimid }}</td>
+                <td>{{ controller.rating }}</td>
+                <td>{{ controller.approved_for  }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div v-else class="no-controllers-padding">
+        There are no visiting controllers 😥
+      </div>
+
       <div class="heading">
         <h1>Solo-Validated Controllers</h1>
       </div>
       <div v-if="soloValidatedControllers.length">
+
         <div class="controllers-table">
           <table class="table text-light">
             <thead class="thead-bh-purple">
@@ -54,31 +95,42 @@
           </table>
         </div>
       </div>
-      <div v-else class="no-solo-controllers">
-        There are no controllers with <abbr title=""></abbr> solo-validation 😞
+
+      <div v-else class="no-controllers-padding">
+        There are no controllers on their solo-validation 😞
       </div>
+
       <div class="heading">
         <h1>Inactive Controllers</h1>
       </div>
-      <div class="controllers-table">
-        <table class="table text-light">
-          <thead class="thead-bh-purple">
-            <tr>
-              <th>Name</th>
-              <th>VATSIM ID</th>
-              <th>Rating</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="controller in inactiveControllers" v-bind:key="controller.vatsimid">
-              <td>{{ controller.firstname }} {{ controller.lastname }}</td>
-              <td>{{ controller.vatsimid }}</td>
-              <td>{{ controller.rating }}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div v-if="inactiveControllers.length > 0">
+
+        <div class="controllers-table">
+          <table class="table text-light">
+            <thead class="thead-bh-purple">
+              <tr>
+                <th>Name</th>
+                <th>VATSIM ID</th>
+                <th>Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="controller in inactiveControllers" v-bind:key="controller.vatsimid">
+                <td>{{ controller.firstname }} {{ controller.lastname }}</td>
+                <td>{{ controller.vatsimid }}</td>
+                <td>{{ controller.rating }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+
+      <div v-else class="no-controllers-padding">
+        There are no inactive controllers 😄
+      </div>
+
     </div>
+
     <div v-else class="no-controllers">
       ⚠️ There was a problem getting the controller list! Please report this on
       <a href="https://discord.bahrainvacc.com">Discord</a>.

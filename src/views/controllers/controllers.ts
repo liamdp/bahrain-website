@@ -5,9 +5,11 @@ export default {
       urlBase: "http://hq.vatme.net/api/",
       vaccCode: "obbb",
       allControllers: {},
-      activeControllers: [],
-      inactiveControllers: [],
+      activeControllers: {},
+      inactiveControllers: {},
       soloValidatedControllers: {},
+      allVisitingControllers: {},
+      activeVisitingControllers: {},
     };
   },
   methods: {
@@ -21,15 +23,20 @@ export default {
 
     populateControllers(results) {
       this.allControllers = results;
-      this.setControllerStatus();
+      this.activeControllers = this.setControllerStatus(this.allControllers, true);
+      this.inactiveControllers = this.setControllerStatus(this.allControllers, false);
     },
 
-    setControllerStatus() {
-      for (let controller of this.allControllers) {
-        controller.approved_for != null && controller.approved_for != ""
-          ? this.activeControllers.push(controller)
-          : this.inactiveControllers.push(controller);
+    setControllerStatus(controllerArray, active) {
+      const controllers = [];
+      for (let controller of controllerArray) {
+        if (active && (controller.approved_for != null && controller.approved_for != "")) {
+          controllers.push(controller)
+        } else if (!active && (controller.approved_for == null || controller.approved_for == "")) {
+          controllers.push(controller)
+        }
       }
+      return controllers;
     },
 
     fetchSoloControllers() {
@@ -43,9 +50,23 @@ export default {
     populateSoloControllers(results) {
       this.soloValidatedControllers = results;
     },
+
+    fetchVisitingControllers() {
+      fetch(`${this.urlBase}vacc/visitors/${this.vaccCode}`)
+        .then((res) => {
+          return res.json();
+        })
+        .then(this.populateVisitorControllers);
+    },
+
+    populateVisitorControllers(results) {
+      this.visitingControllers = results;
+      this.activeVisitingControllers = this.setControllerStatus(this.visitingControllers, true);
+    },
   },
   beforeMount() {
     this.fetchControllers();
     this.fetchSoloControllers();
+    this.fetchVisitingControllers();
   },
 };

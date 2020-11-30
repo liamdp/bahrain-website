@@ -5,6 +5,7 @@ import Staff from '../views/staff'
 import Controllers from '../views/controllers'
 import Home from '../views/home';
 import Policies from '../views/policies';
+import TestTemplate from '../views/test-template';
 
 Vue.use(VueRouter)
 
@@ -33,7 +34,12 @@ const routes = [
     path: '/policies',
     name: 'Policies',
     component: Policies
-  }
+  },
+    {
+    path: '/test',
+    name: 'Test',
+    component: TestTemplate
+  },
 ]
 
 const router = new VueRouter({
