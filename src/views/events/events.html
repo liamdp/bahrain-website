@@ -10,9 +10,7 @@
         </a>
         <h5 class="date-time">{{ formatDate(event.datetime) }}z</h5>
         <img class="banner" :src="event.bannerLink" alt="Banner Link" />
-        <p class="event-desc">
-          {{ formatDesc(event.description) }}
-        </p>
+        <p class="event-desc" v-html="event.description"></p>
       </div>
     </div>
     <div class="no-events" v-else>No events could be found 😢</div>

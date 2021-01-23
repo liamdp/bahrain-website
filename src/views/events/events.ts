@@ -22,11 +22,11 @@ export default {
       this.reverseEventsOrder(this.events);
     },
 
-    formatDesc(desc) {
-      let formattedString = desc.replace(/(<([^>]+)>)/gi, "");
-      formattedString = formattedString.replace(/&nbsp;/gi, "\n");
-      return formattedString;
-    },
+    // formatDesc(desc) {
+    //   let formattedString = desc.replace(/(<([^>]+)>)/gi, "");
+    //   formattedString = formattedString.replace(/&nbsp;/gi, "\n");
+    //   return formattedString;
+    // },
 
     formatDate(date) {
       moment.locale("en-gb");
